@@ -1,0 +1,81 @@
+#include<stdio.h>
+
+int main (){
+    
+int m1[1000][1000];
+int m2[1000][1000];
+int r1;
+int c1;
+int r2;
+int c2;
+int cr;
+int cc;
+
+printf("Ingresa el numero de renglones de la matriz 1:\n");
+scanf("%d", &r1);
+printf("Ingresa el numero de columnas de la matriz 1:\n");
+scanf("%d", &c1);
+
+m1[1000][1000]=m1[r1][c1];
+
+    for(cr=0;cr<r1;cr++){
+        for(cc=0;cc<c1;cc++){
+            printf("Introduce tu número:\n");
+            scanf("%d", &m1[cr][cc]);
+        }
+    }
+printf("Termina el llenado de matriz 1:\n");    
+
+
+printf("Ingresa el numero de renglones de la matriz 2:\n");
+scanf("%d", &r2);
+printf("Ingresa el numero de columnas de la matriz 2:\n");
+scanf("%d", &c2);
+
+m2[1000][1000]=m2[r2][c2];
+
+    for(cr=0;cr<r2;cr++){
+        for(cc=0;cc<c2;cc++){
+            printf("Introduce tu número:\n");
+            scanf("%d", &m2[cr][cc]);
+        }
+    }
+printf("Termina el llenado de matriz 2");
+
+
+//Multiplicación
+
+if(c1==r2){
+    int cc1=0;
+    int cr1=0;
+    int cc2=0;
+    int cr2=0;
+    int cc3=0;
+    int cr3=0;
+    int m3[r1][c2];
+    while(cc3<c2){
+        if(cr1<r1){
+            m3[cr3][cc3]= m1[cr1][cc1]*m2[cr2][cc2];
+            cc1=cc1+1;
+            cr2=cr2+1;
+            if(cc1<c1){
+                m3[cr3][cc3]=m1[cr1][cc1]*m2[cr2][cc2]+m3[cr3][cc3];
+                }else{
+                    cc3=cc3+1;
+                    cr1=cr1+1;
+                    cc2=cc2+1;
+                 if(cc3==c2){
+                    cr3=cr3+1;
+                    }
+                }
+            }else{
+            printf("Termina el programa\n");
+            }
+        }else{
+        printf("El producto de estas matrices no existe \n");
+        }
+}
+}
+
+}
+
